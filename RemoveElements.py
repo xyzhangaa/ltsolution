@@ -5,7 +5,7 @@ def RemoveElem(nums,elem):
   front,back = 0,0
   while front < len(nums):
     if nums[front] != elem:
-      nums[back] = elem
+      nums[back] = nums[front]
       back += 1
     front += 1
   return back
