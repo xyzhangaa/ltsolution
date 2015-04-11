@@ -1,7 +1,7 @@
 ###Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area.
 
 
-def largestRecinHist(height):
+def largest]RecinHist(height):
 	stack = []
 	maxArea = 0
 	height.append(-1)
@@ -21,7 +21,7 @@ def largestRecinHist(height):
 				maxArea=max(maxArea,height[preBasin]*(index-stack[-1]-1))
 	return maxArea
 	
-def largestRec(matrix):
+def MaxRec(matrix):
   if matrix == []:
     return 0
   a = [0 for i in range(len(matrix[0])]
