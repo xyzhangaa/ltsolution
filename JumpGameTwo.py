@@ -21,6 +21,8 @@ def JumpGameII(A):
 	return dp[-1]
 
 ###tricky solution
+### last represents the maximum distance reached by a minimum ret steps; curr represents the maximum distance reached by a ret+1 steps
+
 def JumpGameTwo(A):
 	step = 0
 	curr = 0
