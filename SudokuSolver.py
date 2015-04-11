@@ -1,0 +1,33 @@
+###Write a program to solve a Sudoku puzzle by filling the empty cells.
+
+###Empty cells are indicated by the character '.'.
+
+###You may assume that there will be only one unique solution.
+
+def SudokuSolver(board):
+	def isValid(x,y):
+		temp = board[x][y]
+		board[x][y] = 'D'
+		for i in range(9):
+			if board[i][y] == temp:
+				return False
+		for i in range(9):
+			if board[x][i] == temp:
+				return False
+		for i in range(3):
+			for j in range(3):
+				if board[(x/3)*3+i][(y/3)*3+j] == temp:
+					return False
+		board[x][y] = temp
+	def dfs(board):
+		for i in range(9):
+			for j in range(9):
+				if board[i][j] == '.':
+					for k in '123456789':
+						board[i][j] = k
+						if isValid(i,j) and dfs(board):
+							return True
+						board[i][j] = '.'
+		return True
+	dfs(board)
+
