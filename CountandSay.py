@@ -5,7 +5,7 @@
 ###21 is read off as "one 2, then one 1" or 1211.
 ###Given an integer n, generate the nth sequence.
 
-def count(s):
+def counts(self,s):
   count = 0
   current = '#'
   result = ''
@@ -13,12 +13,15 @@ def count(s):
     if item != current:
       if current!='#':
         result += str(count)+current
+      count = 1
+      current = item
     else:
       count += 1
+  result += str(count)+current
   return result
 
-def countandsay(s,n):
-  string = str(s)
+def countandsay(self,n):
+  string = '1'
   for i in range(2,n+1):
-    string = count(string)
+    string = self.counts(string)
   return string
