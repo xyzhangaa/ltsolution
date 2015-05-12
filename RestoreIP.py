@@ -8,6 +8,7 @@ def restoreIPaddress(s):
 		if sub == 4:
 			if s == '':
 				ips.append(ip[1:])
+			return
 		for i in range(1,4):
 			if i <= len(s):
 				if int(s[:i]) <= 255:
