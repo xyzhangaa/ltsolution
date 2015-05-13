@@ -2,12 +2,12 @@
 
 ###Note:You may assume that duplicates do not exist in the tree.
 def ConstructBTInPostoder(inorder,postorder):
-	if len(inorder) ==0:
+	if len(inorder) ==0 or len(postorder) ==0:
 		return None
 	if len(inorder) == 1:
 		return TreeNode(inorder[0])
 	root = TreeNode(postorder[-1])
 	index = inorder.index(postorder[-1])
 	root.left= ConstructBTInPostorder(inorder[:index],postorder[:index])
-	root.right=ConstructBTInPostorder(inorder[index+1:],postorder[index+1:])
+	root.right=ConstructBTInPostorder(inorder[index+1:],postorder[index:-1])
 	return root
