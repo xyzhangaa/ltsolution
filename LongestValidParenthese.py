@@ -8,6 +8,7 @@
 def longestvalidparenthese(s):
 	maxlen = 0
 	stack = []
+	last = -1
 	for i in range(len(s)):
 		if s[i] == '(':
 			stack.append(i)
@@ -19,5 +20,5 @@ def longestvalidparenthese(s):
 				if stack == []:
 					maxlen = max(maxlen,i-last)
 				else:
-					maxlen = max(maxlen,stack[len(stack)-1])
+					maxlen = max(maxlen,i-stack[len(stack)-1])
 	return maxlen
