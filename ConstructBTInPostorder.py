@@ -9,5 +9,5 @@ def ConstructBTInPostoder(inorder,postorder):
 	root = TreeNode(postorder[-1])
 	index = inorder.index(postorder[-1])
 	root.left= ConstructBTInPostorder(inorder[:index],postorder[:index])
-	root.right=ConstructBTInPostorder(inorder[:ndex+1:len(inorder)],postorder[index+1:len(postorder)-1])
+	root.right=ConstructBTInPostorder(inorder[index+1:],postorder[index+1:])
 	return root
