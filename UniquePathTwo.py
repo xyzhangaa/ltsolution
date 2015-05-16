@@ -4,28 +4,31 @@
 
 ###An obstacle and empty space is marked as 1 and 0 respectively in the grid.
 
-
-
-def UniquePathtwo(grid):
-	m = len(grid)
-	n = len(grid[0])
-	path = [[0 for _ in range(n)] for _ in range(m)]
-	for i in range(m):
-		if grid[i][0] == 0:
-			path[i][0] = 1
-		else:
-			path[i][0] = 1
-			break
-	for i in range(n):
-		if grid[0][i] == 0:
-			path[0][i] = 1
-		else:
-			path[i][0] = 0
-			break
-	for i in range(1,m):
-		for j in range(1,n):
-			if grid[i][j] == 1:
-				path[i][j] = 0
-			else:
-				path[i][j] = path[i-1][j]+path[i][j-1]
-	return path[m-1][n-1]
+class Solution:
+    # @param {integer[][]} obstacleGrid
+    # @return {integer}
+    def uniquePathsWithObstacles(self, obstacleGrid):
+         m = len(obstacleGrid); n=len(obstacleGrid[0])
+         dp = [[0 for _ in range(n)] for _ in range(m)]
+         if obstacleGrid[0][0] == 1:
+             return 0
+         dp[0][0] = 1
+         for i in range(1,m):
+             if obstacleGrid[i][0] == 1:
+                 dp[i][0] = 0
+                 break
+             else:
+                 dp[i][0] = 1
+         for i in range(1,n):
+             if obstacleGrid[0][i] == 1:
+                 dp[0][i] = 0
+                 break
+             else:
+                 dp[0][i] = 1
+         for i in range(1,m):
+             for j in range(1,n):
+                 if obstacleGrid[i][j] == 1:
+                     dp[i][j] = 0
+                 else:
+                     dp[i][j] = dp[i-1][j]+dp[i][j-1]
+         return dp[m-1][n-1]
