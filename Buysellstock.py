@@ -1,3 +1,4 @@
+### Iteratively
 def maxprofitstock(price):
 	i=1
 	while i<len(price)-1:
@@ -21,3 +22,17 @@ def maxprofitstock(price):
 			maxbenefit = max(maxbenefit,price[sellday]- \
 					 price[buyday])
 	return maxbenefit
+	
+### Itervatively Two
+class Solution:
+    # @param {integer[]} prices
+    # @return {integer}
+    def maxProfit(self, prices):
+        if len(prices) <= 1:
+            return 0
+        maxprofit = 0
+        low = prices[0]
+        for i in range(1,len(prices)):
+            low = min(low,prices[i])
+            maxprofit = max(maxprofit,prices[i]-low)
+        return maxprofit
