@@ -18,7 +18,7 @@ def buysellstock(price):
 			maxprofitstarthere[i] = max(maxprofitstart-price[i], \
 						  maxprofitstarthere[i+1])
 		maxprofit = maxprofitendhere[-1]
-		for i in range(len(price)-1):
+		for i in range(len(price)):
 			profit = maxprofitendhere[i]+maxprofitstarthere[i]
 			maxprofit = max(maxprofit,profit)
 		return maxprofit
