@@ -1,4 +1,6 @@
 ###Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+# Time:  O(nlogk)
+# Space: O(k)
 
 class Soluiton:
   def mergeKLists(self,lists):
