@@ -4,6 +4,8 @@
 ###For "(()", the longest valid parentheses substring is "()", which has length = 2.
 
 ###Another example is ")()())", where the longest valid parentheses substring is "()()", which has length = 4.
+#time O(n)
+#space O(1)
 
 def longestvalidparenthese(s):
 	maxlen = 0
