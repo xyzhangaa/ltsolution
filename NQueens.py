@@ -3,7 +3,8 @@
 ###Each solution contains a distinct board configuration of the n-queens' placement, 
 ###where 'Q' and '.' both indicate a queen and an empty space respectively.
 
-
+#time O(n!)
+#space O(n)
 def NQueens(n):
 	def check(k,j):
 		for i in range(k):
