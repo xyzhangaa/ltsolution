@@ -1,3 +1,6 @@
+#time O(n)
+#space O(n)
+
 def permutationseq(n,k):
 	fac = 1
 	for i in range(1,n):
