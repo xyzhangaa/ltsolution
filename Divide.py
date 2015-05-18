@@ -1,5 +1,7 @@
 
 ###Divide two integers without using multiplication, division and mod operator.
+# Time:  O(logn)
+# Space: O(1)
 
 class Solution:
     # @param {integer} dividend
@@ -36,3 +38,9 @@ class Solution:
                 return max_int
             else:
                 return res
+
+if __name__ == "__main__":
+    print Solution().divide(123, 12)
+    print Solution().divide(123, -12)
+    print Solution().divide(-123, 12)
+    print Solution().divide(-123, -12)
