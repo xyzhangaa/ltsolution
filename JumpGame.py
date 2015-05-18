@@ -9,6 +9,8 @@
 
 ###A = [3,2,1,0,4], return false.
 
+#time O(n)
+#space O(1)
 def JumpGame(A):
 	step = A[0]
 	for i in range(1,len(A)):
