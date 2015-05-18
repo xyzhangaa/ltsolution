@@ -1,6 +1,8 @@
 ###Given two numbers represented as strings, return multiplication of the numbers as a string.
 
 ###Note: The numbers can be arbitrarily large and are non-negative.
+# Time:  O(m * n)
+# Space: O(m + n)
 
 def MultiplyStrings(A,B):
   if A == '0' or B=='0':
