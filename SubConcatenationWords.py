@@ -9,30 +9,39 @@
 ###You should return the indices: [0,9].
 ###(order does not matter).
 
+# Time:  O(m * n * k), where m is string length, n is dictionary size, k is word length
+
+# Space: O(n * k)
+
 def SubConcatenationWords(s,l):
-	words = {}
-	wordnum = len(l)
-	for i in l:
-		if i not in words:
-			words[i] = 1
-		else:
-			words[i] += 1
-	wordlen = len(l[0])
-	result = []
-	for i in range(len(s)+1-wordlen*wordnum):
-		curr = {}
-		j = 0
-		while j < wordnum:
-			word = s[i+j*wordlen:i+j*wordlen+wordlen]
-			if word not in words:
-				break
-			if word not in curr:
-				curr[word] = 1
-			else:
-				curr[word] + 1
-			if curr[word] > words[word]:
-				break
-			j += 1
-		if j == wordnum:
-			result.append(i)
-	return result
+	res = []            # result list
+        num = len(L)        # length of the str list 
+        ls = len(S)
+        if num == 0:
+            return []
+        str_len = len(L[0]) # length of each str
+        #create the map: count the occurrance of each string
+        #Note that set(L) is used to reduce the time, otherwise will not pass the large test
+        map_str = dict((x,L.count(x)) for x in set(L))
+        i = 0
+        while i + num * str_len - 1 < ls:
+            map_str2 = {}
+            j = 0
+            while j < num:
+                subs = S[i + j * str_len:i + j * str_len + str_len ]
+                if not subs in map_str:
+                    break
+                else:
+                    # Note that dict.get(key, default_val) is used to handel the case that key NOT exist
+                    map_str2[subs] = map_str2.get(subs, 0) + 1
+                    if map_str2[subs]>map_str[subs]:
+                        break
+                    j = j + 1
+            if j == num:
+                res.append(i)
+            i = i + 1
+         
+        return res
+	
+if __name__ == "__main__":
+    print Solution().findSubstring("barfoothefoobarman", ["foo", "bar"])
