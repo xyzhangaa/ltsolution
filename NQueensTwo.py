@@ -4,6 +4,8 @@
 
 
 ###DFS from NQueens works as well, here using loop
+#time O(n!)
+#space O(n)
 
 def NQueensTwo(n):
 	def check(k,j):
