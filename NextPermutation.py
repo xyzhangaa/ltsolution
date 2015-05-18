@@ -9,25 +9,35 @@
 ###3,2,1 → 1,2,3
 ###1,1,5 → 1,5,1
 
-def nextpermutation(A):
-	if len(A)<=1:
-		return A
-	partition = -1
-	for i in range(len(A)-2,-1,-1):
-		if A[i] < A[i+1]:
-			partition = i
-			break
-	if partition == -1:
-		return A.reverse()
-	else:
-		for i in range(len(A)-1,partition,-1):
-			if A[i] > A[partition]:
-				A[i],A[partition] = A[partition],A[i]
-				break
-	left = partition+1
-	right = len(A)-1
-	while left< right:
-		A[left],A[right] = A[right],A[left]
-		left += 1
-		right -= 1
-	return A
+#time O(n)
+#space O(1)
+
+class Solution2:
+    # @param num, a list of integer
+    # @return a list of integer
+    def nextPermutation(self, num):
+    	if len(num) <= 1:
+    		return num
+        k, l = -1, 0
+        for i in xrange(len(num) - 1):
+            if num[i] < num[i + 1]:
+                k = i
+                
+        if k == -1:
+            return num[::-1]
+        
+        for i in xrange(len(num)):
+            if num[i] > num[k]:
+                l = i
+                
+        num[k], num[l] = num[l], num[k]
+        return num[:k + 1] + num[:k:-1]
+
+if __name__ == "__main__":
+    num = [1, 4, 3, 2]
+    num = Solution().nextPermutation(num)
+    print num
+    num = Solution().nextPermutation(num)
+    print num
+    num = Solution().nextPermutation(num)
+    print num
