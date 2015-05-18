@@ -3,6 +3,9 @@
 ###Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 ### Brutal Force
+# Time:  (n * m)
+# Space: (1)
+
 def strStr(haystack,needle):
 	if len(haystack) < len(needle):
 		return None
@@ -26,6 +29,8 @@ def strStr(haystack,needle):
 		return haystack[i]
 
 ### KMP
+# Time:  O(n + m)
+# Space: O(m)
 def ComputePrefixFunction(needle):
 	Pi = [0 for _ in range(len(needle))]
 	m = len(needle)
