@@ -3,6 +3,9 @@
 ###Given [1,3],[2,6],[8,10],[15,18],
 ###return [1,6],[8,10],[15,18].
 
+#time O(nlogn)
+#space O(1)
+
 def MergeIntervals(intervals):
   intervals.sort(key = lambda x:x[0])
   result  = intervals[0]
