@@ -7,6 +7,9 @@
 ###Your function should return length = 2, and A is now [1,2].
 
 ###swap
+#time O(n)
+#space O(1)
+
 def RemoveDupSortedArray(A):
 	if len(A) == 0:
 		return []
@@ -17,3 +20,6 @@ def RemoveDupSortedArray(A):
 			j += 1
 	del A[j+1:]
 	return j+1
+
+if __name__ == "__main__":
+    print Solution().removeDuplicates([1, 1, 2])
