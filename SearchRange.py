@@ -11,31 +11,44 @@
 # Time:  O(logn)
 # Space: O(1)
 
-def searchrange(A,target):
-	left = 0
-	right = len(A)-1
-	while left <= right:
-		center = (left+right)//2
-		if A[center] > target:
-			right = center+1
-		elif A[center] < target:
-			left = center-1
-		else:
-			list = [0,0]
-			if A[right] == target:
-				list[1] = right
-			if A[left] == target:
-				list[0] = left
-			for i in range(center,right+1):
-				if A[i] != target:
-					list[1] = i-1
-					break
-			for i in range(center,left-1,-1):
-				if A[i] != target:
-					list[0] = i+1
-					break
-			return list
-	return [-1,-1]
+    def searchRange(self, A, target):
+        # Find the first index where target <= A[idx]
+        left = self.binarySearch(lambda x, y: x <= y, A, target)
+        if left >= len(A) or A[left] != target:
+            return [-1, -1]
+        # Find the first index where target < A[idx]
+        right = self.binarySearch(lambda x, y: x < y, A, target)
+        return [left, right - 1]
+    
+    def binarySearch(self, compare, A, target):
+        start, end = 0, len(A)
+        while start < end:
+            mid = start + (end - start) / 2
+            if compare(target, A[mid]):
+                end = mid
+            else:
+                start = mid + 1
+        return start
+    
+    def binarySearch2(self, compare, A, target):
+        start, end = 0, len(A) - 1
+        while start <= end:
+            mid = start + (end - start) / 2
+            if compare(target, A[mid]):
+                end = mid - 1
+            else:
+                start = mid + 1
+        return start
+    
+    def binarySearch3(self, compare, A, target):
+        start, end = -1, len(A)
+        while end - start > 1:
+            mid = start + (end - start) / 2
+            if compare(target, A[mid]):
+                end = mid
+            else:
+                start = mid
+        return end
 
 if __name__ == "__main__":
     print Solution().searchRange([2, 2], 3)
