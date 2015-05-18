@@ -47,7 +47,7 @@ class Solution:
 if __name__ == "__main__":
     print Solution().longestPalindrome("abb")
 
-#Recursively
+#Recursively (TLE)
 class Solution2:
     def getlongestpalindrome(self,s,l,r):
         while l >= 0 and r < len(s) and s[l] == s[r]:
