@@ -30,3 +30,16 @@ class Solution:
       else:
         break
     return None
+
+# Hash Table Solution
+class SolutionII:
+  def intersection(self,headA,headB):
+        htable = {}
+        while headA:
+            htable[headA] = True
+            headA = headA.next
+        while headB:
+            if headB in htable:
+                return headB
+            headB = headB.next
+        return None
