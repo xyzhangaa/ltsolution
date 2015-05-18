@@ -1,4 +1,6 @@
 ###Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+# Time:  O(4^n / n^(3/2)) ~= Catalan numbers
+# Space: O(n)
 
 class Solution:
     # @param {integer} n
