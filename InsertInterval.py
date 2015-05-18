@@ -6,6 +6,8 @@
 ###Given [1,2],[3,5],[6,7],[8,10],[12,16], insert and merge [4,9] in as [1,2],[3,10],[12,16].
 ###This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
 
+#time O(nlogn)
+#space O(1)
 def InsertIntervals(intervals,newinterval):
 	intervals.append(newinterval)
 	intervals.sort(key = lambda x:x[0])
@@ -21,3 +23,6 @@ def InsertIntervals(intervals,newinterval):
 			else:
 				result.append(intervals[i])
 	return result
+	
+if __name__ == "__main__":
+    print Solution().merge([Interval(1, 3), Interval(2, 6), Interval(8, 10), Interval(15,18)])
