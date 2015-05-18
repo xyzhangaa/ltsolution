@@ -1,7 +1,9 @@
 ###Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
 ###The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
 ###Note:
-A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.
+#A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.
+#time O(n^2)
+#space O(n)
 
 def ValidSudoku(board):
 	diction = {}
@@ -39,3 +41,15 @@ def ValidSudoku(board):
 						return False
 			diction = {}
 	return True
+
+if __name__ == "__main__":
+    board = [[1, '.', '.', '.', '.', '.', '.', '.', '.'],
+             ['.', 2, '.', '.', '.', '.', '.', '.', '.'],
+             ['.', '.', 3, '.', '.', '.', '.', '.', '.'],
+             ['.', '.', '.', 4, '.', '.', '.', '.', '.'],
+             ['.', '.', '.', '.', 5, '.', '.', '.', '.'],
+             ['.', '.', '.', '.', '.', 6, '.', '.', '.'],
+             ['.', '.', '.', '.', '.', '.', 7, '.', '.'],
+             ['.', '.', '.', '.', '.', '.', '.', 8, '.'],
+             ['.', '.', '.', '.', '.', '.', '.', '.', 9]]
+    print Solution().isValidSudoku(board)
