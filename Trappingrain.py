@@ -1,5 +1,7 @@
 ###Given n non-negative integers representing an elevation map where the width of each bar is 1, 
 ###compute how much water it is able to trap after raining.
+# time O(n)
+#space O(1)
 
     def trap(A):
         leftmosthigh = [0]*len(A)
@@ -16,3 +18,29 @@
             if min(rightmax, leftmosthigh[i]) > A[i]:
                 sum += min(rightmax, leftmosthigh[i]) - A[i]
         return sum
+
+# Time:  O(n)
+# Space: O(n)
+class Solution2:
+    # @param A, a list of integers
+    # @return an integer
+    def trap(self, A):
+        result = 0
+        stack = []
+        
+        for i in xrange(len(A)):
+            mid_height = 0
+            while stack:
+                [pos, height] = stack.pop()
+                result += (min(height, A[i]) - mid_height) * (i - pos - 1)
+                mid_height = height
+                
+                if A[i] < height:
+                    stack.append([pos, height])
+                    break
+            stack.append([i, A[i]])
+            
+        return result
+    
+if __name__ == "__main__":
+    print Solution().trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])
