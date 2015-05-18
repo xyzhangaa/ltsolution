@@ -16,6 +16,9 @@
 ###	def __init__(self,x):
 ###		self.val = x
 ###		self.next = None
+
+#time O(n)
+#space O(1)
 class Solution:
 	def reverse(self,start,end):
 		newhead = ListNode(0)
@@ -44,3 +47,10 @@ class Solution:
 			start = result[1]
 		return nhead.next
 
+if __name__ == "__main__":
+    head = ListNode(1)
+    head.next = ListNode(2)
+    head.next.next = ListNode(3)
+    head.next.next.next = ListNode(4)
+    head.next.next.next.next = ListNode(5)
+    print Solution().reverseKGroup(head, 2)
