@@ -8,21 +8,22 @@
 
 #time O(nlogn)
 #space O(1)
-def InsertIntervals(intervals,newinterval):
-	intervals.append(newinterval)
-	intervals.sort(key = lambda x:x[0])
-	length = len(intervals)
-	result = []
-	for i in range(length):
-		if result == []:
-			result.append(intervals[i])
-		else:
-			size = len(result)
-			if result[size-1][0] <= intervals[i][0] <= result[size-1][1]:
-				result[size-1][1] = max(result[size-1][1],intervals[i][1])
-			else:
-				result.append(intervals[i])
-	return result
+class Solution:
+    def insert(self, intervals, newInterval):
+        return self.merge(intervals + [newInterval])
+        
+    def merge(self, intervals):
+        if not intervals:
+            return intervals
+        intervals.sort(key = lambda x: x.start)
+        result = [intervals[0]]
+        for i in xrange(1, len(intervals)):
+            prev, current = result[-1], intervals[i]
+            if current.start <= prev.end: 
+                prev.end = max(prev.end, current.end)
+            else:
+                result.append(current)
+        return result
 	
 if __name__ == "__main__":
     print Solution().merge([Interval(1, 3), Interval(2, 6), Interval(8, 10), Interval(15,18)])
