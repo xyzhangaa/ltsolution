@@ -14,20 +14,19 @@
 # Try to do this in one pass.
 
 class Solution:
-def remnthnodefromend(head,n):
-  current = head
-  previous = head
-  for _ in range(n-1):
-    previous.next = head.next
-  if previous.next == None:
-    head = head.next
-  else:
-    previous.next=previous.next
-    while previous.next!=None:
-      previous.next = previous.next
-      current.next = current.next
-    current.next = current.next.next
-  return head
+  def removeNthFromEnd(self,head,n):
+    if not head:
+            return None
+        dummy = ListNode(0)
+        dummy.next = head
+        slow,fast = dummy,dummy
+
+        for i in range(n):
+            fast = fast.next
+        while fast.next:
+            slow,fast = slow.next,fast.next
+        slow.next=slow.next.next
+        return dummy.next
   
 if __name__ == "__main__":
     head = ListNode(1)
