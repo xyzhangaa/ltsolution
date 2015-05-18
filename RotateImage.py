@@ -5,6 +5,8 @@
 
 
 ###invert and then reverse rows
+#time O(n^2)
+#space O(1)
 def rotateimage(matrix):
 	n = len(matrix)
 	for i in range(n):
