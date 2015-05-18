@@ -11,8 +11,13 @@ def atoi(s):
     i += 1
   if s[i] == '-':
     sign = -1
-  if s[i] in '-+':
+    i+=1
+    if not (str[i] >= '0' and str[i] <= '9'):
+      return 0
+  if s[i] == '+':
     i += 1
+    if not (str[i] >= '0' and str[i] <= '9'):
+      return 0
   while i < len(s) and s[i].isdigit():
     result = result*10+(ord(str[i])-ord('0'))*sign
     i += 1
@@ -67,10 +72,13 @@ class Solution:
         sign = 1
         if str[i] == "+":
             i += 1
+            if not (str[i] >= '0' and str[i] <= '9'):
+              return 0
         elif str[i] == "-":
             sign = -1
             i += 1
-
+            if not (str[i] >= '0' and str[i] <= '9'):
+                return 0
         while i < len(str) and str[i] >= '0' and str[i] <= '9':
             if result > INT_MAX / 10 or (result == INT_MAX / 10 and ord(str[i]) - ord('0') > INT_MAX % 10):
                 if sign > 0:
