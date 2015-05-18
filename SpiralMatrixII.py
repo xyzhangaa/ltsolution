@@ -8,7 +8,8 @@
 ### [ 8, 9, 4 ],
 ### [ 7, 6, 5 ]
 ###]
-
+#time O(n^2)
+#space O(1)
 def SpiralMatrixTwo(n):
 	if n == 0:
 		return []
