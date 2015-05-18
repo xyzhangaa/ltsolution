@@ -22,6 +22,8 @@ def JumpGameII(A):
 
 ###tricky solution
 ### last represents the maximum distance reached by a minimum ret steps; curr represents the maximum distance reached by a ret+1 steps
+#time O(n)
+#space O(1)
 
 def JumpGameTwo(A):
 	step = 0
