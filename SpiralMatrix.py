@@ -10,6 +10,8 @@
 ###]
 ###You should return [1,2,3,6,9,8,7,4,5].
 
+#time O(m*n)
+#space O(1)
 
 def SpiralMatrix(matrix):
 	if matrix == []:
@@ -40,3 +42,9 @@ def SpiralMatrix(matrix):
 		if up > down or left > right:
 			return result
 		direc = (direc+1)%4
+
+if __name__ == "__main__":
+    print Solution().spiralOrder([[ 1, 2, 3 ],
+                                  [ 4, 5, 6 ],
+                                  [ 7, 8, 9 ]])
+    print Solution().spiralOrder([[2,3]])
