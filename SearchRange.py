@@ -8,6 +8,9 @@
 ###Given [5, 7, 7, 8, 8, 10] and target value 8,
 ###return [3, 4].
 
+# Time:  O(logn)
+# Space: O(1)
+
 def searchrange(A,target):
 	left = 0
 	right = len(A)-1
@@ -33,3 +36,7 @@ def searchrange(A,target):
 					break
 			return list
 	return [-1,-1]
+
+if __name__ == "__main__":
+    print Solution().searchRange([2, 2], 3)
+    print Solution().searchRange([5, 7, 7, 8, 8, 10], 8)
