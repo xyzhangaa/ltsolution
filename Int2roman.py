@@ -1,5 +1,10 @@
-###Given an integer, convert it to a roman numeral.
-###Input is guaranteed to be within the range from 1 to 3999.
+# Time:  O(n)
+# Space: O(1)
+#
+# Given an integer, convert it to a roman numeral.
+# 
+# Input is guaranteed to be within the range from 1 to 3999.
+#
 
 def int2roman(num):
   result = ''
@@ -16,3 +21,7 @@ def int2roman(num):
     if i in result:
       result = result.replace('i',simplyTable[i])
   return result
+
+if __name__ == "__main__":
+    print Solution().intToRoman(999)
+    print Solution().intToRoman(3999)
