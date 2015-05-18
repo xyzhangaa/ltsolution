@@ -38,7 +38,8 @@
 ###check the rest element in p, if all are *, true, else false;
 
 ###Note that in char array, the last is NOT NULL, to check the end, use  "*p"  or "*p=='\0'".
-
+#time O(m+n)
+#space O(1)
 def wildmatching(s,t):
 	i = 0
 	j = 0
