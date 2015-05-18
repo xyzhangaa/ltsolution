@@ -22,7 +22,7 @@ class Trie:
       child = node.childs.get(letter)
       if child is None:
         child = TrieNode()
-        node.child[letter] = child
+        node.childs[letter] = child
       node = child
     node.isWord = True
   
