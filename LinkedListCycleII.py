@@ -6,18 +6,21 @@ class ListNode:
 		self.next = None
 
 def LinkedListCycleII(self,head):
-  if head == None or head.next == None:
+  if head == None:
     return None
+  hascycle = None
   slow = fast = head
   while fast and fast.next:
     slow = slow.next
     fast = fast.next.next
     if fast == slow:
+      hascycle= True
       break
+  if not hascycle:
+  	return None
   if slow == fast:
-    slow = head
+    fast = head
     while slow != fast:
       slow = slow.next
       fast = fast.next
     return slow
-  return None
