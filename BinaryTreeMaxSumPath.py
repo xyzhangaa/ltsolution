@@ -2,6 +2,7 @@
 
 ###The path may start and end at any node in the tree.
 
+#O(n), O(1)
 class Solution:
 	def maxsum(root):
 		if root == None:
