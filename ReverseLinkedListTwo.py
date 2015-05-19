@@ -9,6 +9,7 @@
 ###Given m, n satisfy the following condition:
 ###1 ≤ m ≤ n ≤ length of list.
 
+#O(n), O(1)
 class ListNode:
 	def __init__(self,x):
 		self.val = x
