@@ -7,6 +7,7 @@
 
 ###Return true because "leetcode" can be segmented as "leet code".
 
+#O(n), O(n)
 def wordbreak(s,dict):
 	dp = [False for _ in range(len(s)+1)]
 	dp[0] = True
