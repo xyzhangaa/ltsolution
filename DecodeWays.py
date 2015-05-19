@@ -9,6 +9,7 @@
 ###Given encoded message "12", it could be decoded as "AB" (1 2) or "L" (12).
 ###The number of ways decoding "12" is 2.
 
+# O(n), O(1)
 def DecodingWays(s):
         if s=="" or s[0]=='0': 
             return 0
