@@ -1,5 +1,6 @@
 ###Given a binary tree, flatten it to a linked list in-place.
 
+#O(n), O(1)
 def FlatBT(root):
 	if root == None:
 		return
