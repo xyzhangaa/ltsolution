@@ -47,6 +47,8 @@ class Solution:
         ans = 0
         if x >= 0:
             while x:
+            	if ans*10+x%10 > max_int:
+                	return 0
                 ans = ans * 10 + x % 10
                 x /= 10
             return ans
