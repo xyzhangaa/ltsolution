@@ -7,6 +7,8 @@
 ###assigned more spaces than the slots on the right.
 
 ###For the last line of text, it should be left justified and no extra space is inserted between words.
+#time O(n)
+#space O(1)
 
 def textjustify(words,L):
 	begin,end=0,0
@@ -24,7 +26,7 @@ def textjustify(words,L):
 			temp += ' '*(L-len(temp))
 			result.append(temp)
 			break
-		temp =' '
+		temp =''
 		if end == begin+1:
 			temp = words[begin]+' '*(L-len(words[begin]))
 		else:
@@ -34,7 +36,7 @@ def textjustify(words,L):
 				if i-begin < morespace:
 					temp += words[i]+' '*(spacecount+1)
 				else:
-					temp += words[i]+' '*(spacecount+1)
+					temp += words[i]+' '*spacecount
 			temp += words[end-1]
 		result.append(temp)
 		begin = end
