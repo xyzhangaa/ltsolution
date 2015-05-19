@@ -1,4 +1,6 @@
 ###Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.
+#time O(m*n)
+#space O(m+n)
 
 def setmatrixzeros(matrix):
 	nrow = len(matrix)
@@ -14,3 +16,4 @@ def setmatrixzeros(matrix):
 		for j in range(ncol):
 			if row[i] or col[j]:
 				matrix[i][j] = 0
+	
