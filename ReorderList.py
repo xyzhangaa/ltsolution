@@ -4,37 +4,46 @@
 
 ###For example, Given {1,2,3,4}, reorder it to {1,4,2,3}.
 
+#O(n), O(1)
+# Definition for singly-linked list.
 class ListNode:
-	def __int__(self,x):
-		self.val = x
-		self.next = None
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+            
+    def __repr__(self):
+        if self:
+            return "{} -> {}".format(self.val, repr(self.next))
+        
+class Solution:
+    # @param head, a ListNode
+    # @return nothing
+    def reorderList(self, head):
+        if head == None or head.next == None:
+            return head
+        
+        fast, slow, prev = head, head, None
+        while fast != None and fast.next != None:
+            fast, slow, prev = fast.next.next, slow.next, slow
+        current, prev.next, prev = slow, None, None
+        
+        while current != None:
+            current.next, prev, current = prev, current, current.next
+            
+        l1, l2 = head, prev
+        dummy = ListNode(0)
+        current = dummy
 
-def ReorderList(self,head):
-	if head == None or head.next == None or head.next.next == None:
-		return head
-	slow = fast = head
-	while fast and fast.next:
-		slow = slow.next
-		fast = fast.next.next
-	head1 = head
-	head2 = slow.next
-	slow.next = None
-	dummy = ListNode(0)
-	dummy.next = head2
-	p = head2.next
-	head2.next = None
-	temp = p
-	p = p.next
-	temp.next = dummy.next
-	dummy.next = temp
-	head2 = dummy.next
-	p1 = head1
-	p2 = head2
-	while p2:
-		temp1 = p1.next
-		temp2 = p2.next
-		p1.next = p2
-		p2.next = temp1
-		p1 = temp1
-		p2 = temp2
-	return head
+        while l1 != None and l2 != None:
+            current.next, current, l1 = l1, l1, l1.next
+            current.next, current, l2 = l2, l2, l2.next
+            
+        return dummy.next
+
+if __name__ == "__main__":
+    head = ListNode(1)
+    head.next = ListNode(2)
+    head.next.next = ListNode(3)
+    head.next.next.next = ListNode(4)
+    head.next.next.next.next = ListNode(5)
+    print Solution().reorderList(head)
