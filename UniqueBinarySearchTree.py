@@ -1,7 +1,8 @@
 ###Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
-dp[n] = dp[0]*dp[n-1]+dp[1]*dp[n-2]+...+dp[n-1]dp[0]
-Katerlan Numer
+##dp[n] = dp[0]*dp[n-1]+dp[1]*dp[n-2]+...+dp[n-1]dp[0]
+##Katerlan Numer
 
+# O(n^2), O(n)
 def UniqueBST(n):
 	dp = [1,1,2]
 	if n <= 2:
