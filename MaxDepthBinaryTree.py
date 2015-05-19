@@ -2,6 +2,7 @@
 
 ###The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
+#O(n), O(1)
 class TreeNode:
 	def __int__(self,x):
 		self.val = x
