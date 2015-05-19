@@ -1,3 +1,4 @@
+#O(n), O(1)
 ### Iteratively
 def maxprofitstock(price):
 	i=1
