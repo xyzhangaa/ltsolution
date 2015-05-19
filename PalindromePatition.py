@@ -10,6 +10,7 @@
 ###    ["a","a","b"]
 ###  ]
 
+#O(n^2), O(n^2)
 class Solution:
 	def isPalindrom(s):
 		for i in range(len(s)):
