@@ -1,6 +1,7 @@
 ###Given a binary tree, return the zigzag level order traversal of its nodes' values. 
 ###(ie, from left to right, then right to left for the next level and alternate between).
 
+#O(n),O(n)
 def preorder(root,level,res):
 	if root:
 		if len(res) < level+1:
