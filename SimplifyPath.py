@@ -10,6 +10,9 @@
 ######In this case, you should ignore redundant slashes and return "/home/foo".
 
 ###Python string manipulation
+###Interatively
+#time O(n)
+#space O(1)
 def SimplifyPath(s):
 	s = s.split('/')
 	curr = '/'
@@ -26,6 +29,10 @@ def SimplifyPath(s):
 				curr += i
 	return curr
 
+
+###stack
+#time O(n)
+#space O(n)
 ### No string manipulation
 def SimplifyPathTwo(s):
 	stack = []
