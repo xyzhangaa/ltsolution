@@ -1,5 +1,6 @@
 ###Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
 
+#O(n), O(1)
 class TreeNode:
 	def __int__(self,x):
 		self.val = x
