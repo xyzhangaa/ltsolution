@@ -9,6 +9,7 @@
 
 ###A solution is ["cats and dog", "cat sand dog"].
 
+#O(n^2),O(n)
 class Solution:
   def check(s,diction):
 	  dp = [False for _ in range(len(s)+1)]
