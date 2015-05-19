@@ -2,6 +2,7 @@
 
 ###The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
+#O(n), O(1)
 def MinDepthBTree(root):
 	if root == None:
 		return 0
