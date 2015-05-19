@@ -6,6 +6,8 @@
 ###Note:
 ###You are not suppose to use the library's sort function for this problem.
 
+#O(n)
+# O(1)
 def SortColors(A):
 	if A == []:
 		return []
@@ -22,4 +24,3 @@ def SortColors(A):
 			i += 1
 		else:
 			i += 1
-	return A
