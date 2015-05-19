@@ -9,34 +9,39 @@
 ###If there is no such window in S that covers all characters in T, return the emtpy string "".
 ###If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
 
-def minWindow(S, T):
-        count1={}; count2={}
-        for char in T:
-            if char not in count1: count1[char]=1
-            else: count1[char]+=1
-        for char in T:
-            if char not in count2: count2[char]=1
-            else: count2[char]+=1
-        count=len(T)
-        start=0; minSize=100000; minStart=0
-        for end in range(len(S)):
-            if S[end] in count2 and count2[S[end]]>0:
-                count1[S[end]]-=1
-                if count1[S[end]]>=0:
-                    count-=1
-            if count==0:
-                while True:
-                    if S[start] in count2 and count2[S[start]]>0:
-                        if count1[S[start]]<0:
-                            count1[S[start]]+=1
-                        else:
-                            break
-                    start+=1
-                if minSize>end-start+1:
-                    minSize=end-start+1
-                    minStart=start
-        if minSize==100000: 
-            return ''
-        else:
-            return S[minStart:minStart+minSize]
+# O(n)
+# O(k), k is the number of different chars
 
+class Solution:
+    # @return a string
+    def minWindow(self, S, T):
+        current_count = [0 for i in xrange(52)]
+        expected_count = [0 for i in xrange(52)]
+        
+        for char in T:
+            expected_count[ord(char) - ord('a')] += 1
+        
+        i, count, start, min_width, min_start = 0, 0, 0, float("inf"), 0
+        while i < len(S):
+            current_count[ord(S[i]) - ord('a')] += 1
+            if current_count[ord(S[i]) - ord('a')] <= expected_count[ord(S[i]) - ord('a')]:
+                count += 1
+            
+            if count == len(T):
+                while expected_count[ord(S[start]) - ord('a')] == 0 or\
+                      current_count[ord(S[start]) - ord('a')] > expected_count[ord(S[start]) - ord('a')]:
+                    current_count[ord(S[start]) - ord('a')] -= 1
+                    start += 1
+                
+                if min_width > i - start + 1:
+                    min_width = i - start + 1
+                    min_start = start
+            i += 1
+                    
+        if min_width == float("inf"):
+            return ""
+        
+        return S[min_start:min_start + min_width]
+
+if __name__ == "__main__":
+    print Solution().minWindow("ADOBECODEBANC", "ABC")     
