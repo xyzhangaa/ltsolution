@@ -2,6 +2,8 @@
 
 ###Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
 
+
+# O(n), O(1)
 class TreeNode:
 	def __int__(self,x):
 		self.val = x
