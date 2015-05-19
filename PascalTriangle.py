@@ -12,7 +12,7 @@
 ###]
 
 
-
+#O(n^2), O(n)
 def PascalTriangle(nRows):
 	if nRows == 0:
 		return []
