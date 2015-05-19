@@ -18,9 +18,20 @@
 ###For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.
 
 ###Bit Manipulation
+# O(n), O(1)
 def GrayCode(n):
 	result = []
 	size = 1<<n
 	for i in range(size):
 		result.append((i>>1)^i)
 	return result
+
+#O(2^n), O(1)
+class Solution:
+    # @return a list of integers
+    def grayCode(self, n):
+        result = [0]
+        for i in xrange(0, n):
+            for n in reversed(result):
+                result.append(1 << i | n)
+        return result
