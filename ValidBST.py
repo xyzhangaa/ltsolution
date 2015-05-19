@@ -6,6 +6,7 @@
 ###The right subtree of a node contains only nodes with keys greater than the node's key.
 ###Both the left and right subtrees must also be binary search trees.
 
+#O(n), O(1)
 def ValidBST(root,min,max):
 	if root == None:
 		return True
