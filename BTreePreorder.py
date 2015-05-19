@@ -1,6 +1,7 @@
 ###Given a binary tree, return the preorder traversal of its nodes' values.
 
-def iterative_preorder(root,list):
+#O(n),O(h)
+def iterative_preorder(self,root,list):
 	stack = []
 	while root or stack:
 		if root:
@@ -14,5 +15,5 @@ def iterative_preorder(root,list):
 	
 def preorder(root):
 	list = []
-	iterative_preorder(root,list)
+	self.iterative_preorder(root,list)
 	return list
