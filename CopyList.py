@@ -3,6 +3,7 @@
 
 ###Return a deep copy of the list.
 
+#O(n), O(1)
 def CopyList(head):
 	if head == None:
 		return None
