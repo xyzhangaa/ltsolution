@@ -5,6 +5,7 @@
 
 ###Return the starting gas station's index if you can travel around the circuit once, otherwise return -1.
 
+#O(n), O(1)
 def gasstation(gas,cost):
   if sum(gas) < sum(cost):
     return -1
