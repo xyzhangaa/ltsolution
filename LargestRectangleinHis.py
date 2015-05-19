@@ -1,7 +1,7 @@
 ###Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, 
 ###find the area of largest rectangle in the histogram.
 
-
+# O(n), O(n)
 def largestRec(height):
 	stack = []
 	maxArea = 0
