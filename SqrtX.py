@@ -1,6 +1,9 @@
 ###Implement int sqrt(int x).
 
 ###Compute and return the square root of x.
+## (x/2+1)**2 >= x**2
+#time O(logn)
+#space O(n1)
 
 def Sqrt(x):
 	if x == 0:
