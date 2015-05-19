@@ -1,5 +1,6 @@
 ###Validate if a given string is numeric.
-
+#time O(n)
+#space O(1)
 def ValidNum(s):
 	INVALID = 0
 	SPACE = 1
@@ -31,3 +32,10 @@ def ValidNum(s):
 		else:
 			i+= 1
 	return state == 1 or state == 4 or state == 7 or state == 8
+
+class Solution2:
+    # @param s, a string
+    # @return a boolean
+    def isNumber(self, s):
+        import re
+        return bool(re.match("^\s*[\+\-]?((\d+(\.\d*)?)|\.\d+)([eE][+-]?\d+)?\s*$", s))
