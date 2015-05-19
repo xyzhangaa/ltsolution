@@ -9,6 +9,7 @@
 ###You may only use constant extra space.
 ###You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
 
+#O(n), O(1)
 class TreeLinkNode:
 	def __int__(self,x):
 		self.val = x
@@ -25,3 +26,11 @@ def PopulateNodes(root):
 			root.right.next = None
 		PopulateNodes(root.left)
 		PopulateNodes(root.right)
+
+if __name__ == "__main__":
+    root, root.left, root.right = TreeNode(1), TreeNode(2), TreeNode(3)
+    root.left.left, root.left.right, root.right.left, root.right.right = TreeNode(4), TreeNode(5), TreeNode(6), TreeNode(7)
+    Solution().connect(root)
+    print root
+    print root.left
+    print root.left.left
