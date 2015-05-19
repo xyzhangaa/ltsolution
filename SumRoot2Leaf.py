@@ -4,6 +4,7 @@
 
 ###Find the total sum of all root-to-leaf numbers.
 
+#O(n),O(h)
 def sum(root,preSum):
 	if root == None:
 		return 0
