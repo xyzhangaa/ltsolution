@@ -1,5 +1,6 @@
 ###Given a binary tree, return the postorder traversal of its nodes' values.
 
+#O(n),O(h)
 ###Iterative
 def itervative_postorder(root,list):
 	stack = []
