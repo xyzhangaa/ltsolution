@@ -3,6 +3,8 @@
 ###a = "11"
 ###b = "1"
 ###Return "100".
+#time O(n)
+#space O(1)
 
 def AddBinary(a,b):
 	aIndex = len(a)-1
