@@ -4,6 +4,7 @@
 ###Children with a higher rating get more candies than their neighbors.
 ###What is the minimum candies you must give?
 
+#O(n), O(n)
 def candy(ratings):
   candynum = [1 for _ in range(len(ratings))]
   for i in range(1,len(ratings)):
