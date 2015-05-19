@@ -1,5 +1,6 @@
 ###Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
 
+#O(n), O(n)
 class UndirectedGraphNodes:
 	def __int__(self,x):
 		self.label = x
