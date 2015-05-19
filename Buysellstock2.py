@@ -3,6 +3,7 @@
 ###you like (ie, buy one and sell one share of the stock multiple times). However, you may 
 ###not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
 
+#O(n), O(1)
 def maxprofitstock(price):
 	maxprofit = 0
 	if len(price) <= 1:
