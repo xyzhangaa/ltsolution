@@ -4,6 +4,7 @@
 ###Given 1->1->2, return 1->2.
 ###Given 1->1->2->3->3, return 1->2->3.
 
+#O(n), O(1)
 class ListNode:
 	def __init__(self,x):
 		self.val = x
