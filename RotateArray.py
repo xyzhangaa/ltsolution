@@ -36,3 +36,24 @@ class Solution2:
     for i in range(1,cycle_len):
       nums[(offset+i*k) % len(nums)], temp = temp,nums[(offset+i*k) % len(nums)]
     nums[offset] = temp
+
+class Solution3:
+  def rotatearr(self,nums,k):
+    n = len(nums); idx= 0; distance = 0; cur = nums[0]
+    for i in range(n):
+      next = (idx+k)%n
+      temp = nums[next]
+      numx[next] = cur
+      idx = next
+      cur = temp
+      distance = (distance+k)%n
+      if distance ==0:
+        idx = (idx+1)%n
+        cur = nums[idx]
+
+#O(n), O(n)
+class Solution4:
+  def rotatearr(self,nums,k):
+    n = len(nums)
+    if k >0 and n>1:
+      nums[:] = nums[n-k:] + nums[:n-k]
