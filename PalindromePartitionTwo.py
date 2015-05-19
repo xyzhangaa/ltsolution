@@ -5,6 +5,7 @@
 ###For example, given s = "aab",
 ###Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 cut.
 
+#O(n^2), O(n^2)
 def PalindromePartitionTwo(s):
 	if len(s) == 0 or len(s) == 1:
 		return 0
