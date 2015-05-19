@@ -1,36 +1,51 @@
-###Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area.
+# Time:  O(n^2)
+# Space: O(n)
+#
+# Given a 2D binary matrix filled with 0's and 1's, 
+# find the largest rectangle containing all ones and return its area.
+#
 
+class Solution:
+    # @param matrix, a list of lists of 1 length string
+    # @return an integer
+    def maximalRectangle(self, matrix):
+        if not matrix:
+            return 0
+        
+        result = 0
+        m = len(matrix)
+        n = len(matrix[0])
+        L = [0 for _ in xrange(n)]
+        H = [0 for _ in xrange(n)]
+        R = [n for _ in xrange(n)]
 
-def largest]RecinHist(height):
-	stack = []
-	maxArea = 0
-	height.append(-1)
-	index = 0
-	while index < len(height):
-		if len(stack) == 0:
-			stack.append(index)
-			index += 1
-		elif height[index] >= height[stack[-1]]:
-			stack.append(index)
-			index += 1
-		else:
-			preBasin = stack.pop()
-			if len(stack) == 0:
-				maxArea=max(maxArea,height[preBasin]*index)
-			else:
-				maxArea=max(maxArea,height[preBasin]*(index-stack[-1]-1))
-	return maxArea
-	
-def MaxRec(matrix):
-  if matrix == []:
-    return 0
-  a = [0 for i in range(len(matrix[0])]
-  maxArea = 0
-  for i in range(len(matrix)):
-    for j in range(len(matrix[0])):
-      if matrix[i][j] == 1:
-        a[j] += 1
-      else:
-        a[j] = 0
-    maxArea = max(maxArea, largestRecinHist(a))
-  return maxArea
+        for i in xrange(m):
+            left = 0
+            for j in xrange(n):
+                if matrix[i][j] == '1':
+                    L[j] = max(L[j], left)
+                    H[j] += 1
+                else:
+                    L[j] = 0
+                    H[j] = 0
+                    R[j] = n
+                    left = j + 1
+                    
+            right = n
+            for j in reversed(xrange(n)):
+                if matrix[i][j] == '1':
+                    R[j] = min(R[j], right)
+                    result = max(result, H[j] * (R[j] - L[j]))
+                else:
+                    right = j
+                    
+        return result
+
+if __name__ == "__main__":
+    matrix = ["01101",
+              "11010",
+              "01110",
+              "11110",
+              "11111",
+              "00000"]
+    print Solution().maximalRectangle(matrix)
