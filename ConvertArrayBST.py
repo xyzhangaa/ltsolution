@@ -1,5 +1,6 @@
 ###Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 
+#O(n), O(logn)
 def ConvertArrayBST(A):
 	length = len(A)
 	if length == 0:
