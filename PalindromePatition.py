@@ -12,18 +12,18 @@
 
 #O(n^2), O(n^2)
 class Solution:
-	def isPalindrom(s):
+	def isPalindrom(self,s):
 		for i in range(len(s)):
 			if s[i] != s[-i-1]:
 				return False
 		return True
-	def dfs(s,stringlist):
+	def dfs(self,s,stringlist):
 		if len(s) == 0:
-			Solution.result.append(stringlist)
+			result.append(stringlist)
 		for i in range(1,len(s)+1):
-			if isPalindromw(s[:i]):
-				dfs(s[i:],stringlist+[s[:i]])
+			if self.isPalindromw(s[:i]):
+				self.dfs(s[i:],stringlist+[s[:i]])
 	def PalindromePatition(s):
-		Solution.result = []
-		dfs(s,'')
-		return Solution.result
+		result = []
+		self.dfs(s,[],res)
+		return result
