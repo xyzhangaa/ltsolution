@@ -21,5 +21,8 @@ def PolishNotation(s):
 			elif s[i] == '*':
 				stack.append(a*b)
 			elif s[i] == '/':
-				stack.append(b/a)
+				if a*b <0:
+					stack.append(-((-b)/a))
+				else:
+					stack.append(b/a)
 	return stack.pop()
