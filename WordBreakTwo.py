@@ -26,7 +26,7 @@ class Solution:
 		  	Solution.result.append(stringlist[1:])
 		  for i in range(1,len(s)+1):
 			  if s[:i] in diction:
-			  	dfs(s[:i],diction,stringlist+' '+s[:i])
+			  	dfs(s[i:],diction,stringlist+' '+s[:i])
 				
   def WordBreakTwo(s,diction):
   	Solution.result = []
