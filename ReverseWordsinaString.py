@@ -1,5 +1,5 @@
 ###Given an input string, reverse the string word by word.
-
+#O(n), O(n)
 def reversestring(string):
 	A = string.split()
 	newstring = ''
@@ -7,3 +7,8 @@ def reversestring(string):
 		newstring += A[i]+' '
 	newstring += A[0]
 	return newstring
+
+class Solution2:
+	def reversestr(s):
+		return ' '.join(reversed(s.split()))
+		
