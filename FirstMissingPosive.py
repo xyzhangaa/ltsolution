@@ -31,6 +31,20 @@ def firstmissingpos(A):
 			return i+1
 	return len(A)+1
 
+class Solution2:
+	def fistmissingpositive(self,nums):
+		i = 0
+		while i < len(nums):
+			if nums[i] > 0 and nums[i]-1 < len(nums) and nums[i] != nums[nums[i]-1]:
+				nums[nums[i]-1],nums[i] = nums[i],nums[nums[i]-1]
+			else:
+				i += 1
+		for i, integer in enumerate(nums):
+			if i+1 != integer:
+				return i+1
+		return len(nums)+1
+
+
 if __name__ == "__main__":
     print Solution().firstMissingPositive([1,2,0])
     print Solution().firstMissingPositive([3,4,-1,1])
