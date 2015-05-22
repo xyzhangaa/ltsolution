@@ -11,7 +11,7 @@ def PathSumTwo(root,target):
 	def dfs(root,curr,valuelist):
 		if root.left == None and root.right == None:
 			if curr == target:
-				res.append([valuelist])
+				res.append(valuelist)
 		if root.left:
 			dfs(root.left,curr+root.left.val,valuelist+ \
 			    [root.left.val])
@@ -21,5 +21,5 @@ def PathSumTwo(root,target):
 	res = []
 	if root == None:
 		return []
-	dfs(root,target,[])
+	dfs(root,root.val,[root.val])
 	return res
