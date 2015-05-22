@@ -18,3 +18,15 @@ class Solution:
         visited[ord(char)] = True
       longest = max(longest,i-start+1)
     return longest
+
+class Solution:
+  def longsubnodup(self,s):
+    longest, start, visited = 0,0,[-1 for _ in range(256)]
+    for i in range(len(s)):
+      if visited[ord(s[i])] != -1:
+        while start <= visited[ord(s[i])]:
+          visited[ord(s[i])] = -1
+          start += 1
+      longest = max(longest,i-start+1)
+      visited[ord(s[i])] = i
+    return longest
