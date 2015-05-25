@@ -21,6 +21,8 @@ def SudokuSolver(board):
 				if board[(x/3)*3+i][(y/3)*3+j] == temp:
 					return False
 		board[x][y] = temp
+		return True
+		
 	def dfs(board):
 		for i in range(9):
 			for j in range(9):
@@ -30,6 +32,7 @@ def SudokuSolver(board):
 						if isValid(i,j) and dfs(board):
 							return True
 						board[i][j] = '.'
+					return False
 		return True
 	dfs(board)
 
