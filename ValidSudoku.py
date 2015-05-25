@@ -29,13 +29,13 @@ def ValidSudoku(board):
 		for jblock in range(3):
 			for i in range(3):
 				for j in range(3):
-					if board[iblock*3+i][iblock*3+j] \
+					if board[iblock*3+i][jblock*3+j] \
 					   == '.':
 						continue
 					elif board[iblock*3+i][jblock*3+j] \
 					     not in diction:
 						diction[board[iblock*3+i] \
-							[iblock*3+j]] = 1
+							[jblock*3+j]] = 1
 					elif diction[board[iblock*3+i] \
 						     [jblock*3+j]] == 1:
 						return False
