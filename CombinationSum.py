@@ -19,6 +19,7 @@ class Solution:
   def combinationsum(self,candidates,target):
     res = []
     self.combinationsumrecu(sorted(candidates),res,0,[],target)
+    return res
   def combinationsumrecu(self,candidates,res,start,valuelist,target):
     if target == 0:
       res.append(valuelist)
