@@ -18,4 +18,13 @@ For example, after running your query, the above Person table should have the fo
 +----+------------------+
 
 # Write your MySQL query statement below
-SELECT Email FROM Person GROUP BY Email HAVING COUNT(*) > 1
+DELETE FROM p1 USING Person p1 INNER JOIN Person p2
+WHERE p1.Email = p2.Email AND p1.Id > p2.Id;
+
+# Write your MySQL query statement below
+DELETE p1 FROM Person p1 INNER JOIN Person p2
+WHERE p1.Email = p2.Email AND p1.Id > p2.Id;
+
+# Write your MySQL query statement below
+DELETE p1 FROM Person p1 INNER JOIN Person p2
+WHERE p1.Email = p2.Email AND p1.Id > p2.Id;
