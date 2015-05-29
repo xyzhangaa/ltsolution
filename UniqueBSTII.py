@@ -22,7 +22,7 @@ def dfs(self, start,end):
 				root.left = i
 				root.right = j
 				res.append(root)
-		return res
+	return res
 	
 def generateBTS(n):
 	return self.dfs(1,n)
