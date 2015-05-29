@@ -23,7 +23,7 @@ class Solution:
   
   def maxatmostkpairsprofit(self,prices,k):
     max_buy = [float('-inf') for _ in range(k+1)]
-    max_sell = [0 for _ in range{k+1)]
+    max_sell = [0 for _ in range(k+1)]
     for i in range(len(prices)):
       for j in range(1,min(k,i/2+1)+1):
         max_buy[j] = max(max_buy[j],max_sell[j-1]-prices[i])
