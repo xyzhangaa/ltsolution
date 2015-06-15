@@ -20,7 +20,7 @@ def getKth(a,b,k):
 
 def MedianTwoSortList(a,b):
 	if (len(a)+len(b))%2 == 1:
-		return getKth(a,b,(len(a)+len(b))/2)
+		return getKth(a,b,(len(a)+len(b))/2+1)
 	else:
 		return (getKth(a,b,(len(a)+len(b))/2)+ \
 		       getKth(a,b,(len(a)+len(b))/2+1))*0.5
