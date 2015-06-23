@@ -26,7 +26,7 @@ class Solution:
         curB = curB.next
       elif tailB is None:
         tailB = curB
-        curB = tailA
+        curB = headA
       else:
         break
     return None
