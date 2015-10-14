@@ -16,7 +16,7 @@ class Solution:
     while flag and len(courses):
       flag= False
       removeList = []
-      for x in course:
+      for x in courses:
         if degree[x] == 0:
           for child in childs[x]:
             degree[child] -= 1
