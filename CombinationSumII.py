@@ -22,21 +22,20 @@ class Solution:
     # @param candidates, a list of integers
     # @param target, integer
     # @return a list of lists of integers
-    def combinationSum2(self, candidates, target):
-        result = []
-        self.combinationSumRecu(sorted(candidates), result, 0, [], target)
-        return result
+    def DFS(self, candidates, target, start, valuelist):
+        length = len(candidates)
+        if target == 0 and valuelist not in Solution.ret: return Solution.ret.append(valuelist)
+        for i in range(start, length):
+            if target < candidates[i]:
+                return
+            self.DFS(candidates, target - candidates[i], i + 1, valuelist + [candidates[i]])
     
-    def combinationSumRecu(self, candidates, result, start, intermediate, target):
-        if target == 0:
-            result.append(intermediate)
-        prev = 0
-        while start < len(candidates) and candidates[start] <= target:
-            if prev != candidates[start]:
-                self.combinationSumRecu(candidates, result, start + 1, intermediate + [candidates[start]], target - candidates[start])
-                prev = candidates[start]
-            start += 1
-
+    def combinationSum2(self, candidates, target):
+        candidates.sort()
+        Solution.ret = []
+        self.DFS(candidates, target, 0, [])
+        return Solution.ret
+        
 if __name__ == "__main__":
     candidates, target = [10, 1, 2, 7, 6, 1, 5], 8
     result = Solution().combinationSum2(candidates, target)     
